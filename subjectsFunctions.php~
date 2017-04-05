@@ -33,26 +33,23 @@ function utt_create_subjects_page(){
     <div class="wrap">
         <h2 id="subjectTitle"> <?php _e("Insert Subject","UniTimetable"); ?> </h2>
         <form action="" name="subjectForm" method="post">
-	    <div class = "container">
             <input type="hidden" name="subjectid" id="subjectid" value=0 />
-            <div class="container element col-sm-12">
-            <label for = "subjectname"><?php _e("Title:","UniTimetable"); ?><br/></label>
-            <input type="text" name="subjectname" id="subjectname" class="form-control dirty" size="40" placeholder="<?php _e("Required","UniTimetable"); ?>"/>
+            <div class="element">
+            <?php _e("Title:","UniTimetable"); ?><br/>
+            <input type="text" name="subjectname" id="subjectname" class="dirty" size="40" placeholder="<?php _e("Required","UniTimetable"); ?>"/>
             </div>
-	    </br>
-            <div class="container element2 firstInRow last col-sm-6">
-            <label for = "subjecttype"><?php _e("Type:","UniTimetable"); ?><br/></label>
-            <select name="subjecttype" class="form-control dirty" id="subjecttype">
+            <div class="element2 firstInRow last">
+            <?php _e("Type:","UniTimetable"); ?><br/>
+            <select name="subjecttype" class="dirty" id="subjecttype">
                 <option value="0"><?php _e("- select -","UniTimetable"); ?></option>
                 <option value="T"><?php _e("Theory","UniTimetable"); ?></option>
                 <option value="L"><?php _e("Lab","UniTimetable"); ?></option>
                 <option value="PE"><?php _e("Practice Exercises","UniTimetable"); ?></option>
             </select>
             </div>
-	    </br>
-            <div class="element2 col-sm-6">
-            <label for = "semester"><?php _e("Semester:","UniTimetable"); ?><br/></label>
-            <select name="semester" id="semester" class="form-control dirty">
+            <div class="element2">
+            <?php _e("Semester:","UniTimetable"); ?><br/>
+            <select name="semester" id="semester" class="dirty">
                 <option value="0"><?php _e("- select -","UniTimetable"); ?></option>
                 <?php
                 for($i=1;$i<11;$i++){
@@ -61,25 +58,18 @@ function utt_create_subjects_page(){
                 ?>
             </select>
             </div>
-	    </br>
-            <div class="element2 col-sm-6">
-            <label for = "color"><?php _e("Color:","UniTimetable"); ?><br/></label>
-            <input type="text" id="color" class="form-control color dirty" size="10" name="color"/>
+            <div class="element2">
+            <?php _e("Color:","UniTimetable"); ?><br/>
+            <input type="text" id="color" class="color dirty" size="10" name="color"/>
             </div>
-	    </div>
-	    </br></br>
-	    <div class = "container">	
-            <div id="secondaryButtonContainer" class = "container pt-3">
+            <div id="secondaryButtonContainer">
                 <input type="submit" value="<?php _e("Submit","UniTimetable"); ?>" id="insert-updateSubject" class="button-primary"/>
                 <a href='#' class='button-secondary' id="clearSubjectForm"><?php _e("Reset","UniTimetable"); ?></a>
             </div>
-	    </div>
         </form>
-	</br></br>
     <!-- place to view messages -->
     <div id="messages"></div>
-    <div class = "container">
-    <?php _e("Select Semester:","UniTimetable"); ?> 
+    <?php _e("Select Semester:","UniTimetable"); ?>
     <!-- semester filter -->
     <select name="semesterFilter" id="semesterFilter" onchange="viewSubjects();">
         <option value='0'><?php _e("All","UniTimetable"); ?></option>
@@ -90,10 +80,8 @@ function utt_create_subjects_page(){
         }
         ?>
     </select>
-    </div>
-    </br></br>
     <!-- place to view subjects table -->
-    <div id="subjectsResults" class = "container">
+    <div id="subjectsResults">
         <?php utt_view_subjects(); ?>
     </div>
     <?php
@@ -168,7 +156,7 @@ function utt_view_subjects(){
     }
     //show registered subjects
     ?>
-    	<div class = "container">
+    	<div class = "container col-sm-10">
         <!-- table with subjects viewed -->
         <table class="widefat bold-th">
             <thead>

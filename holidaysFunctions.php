@@ -32,20 +32,29 @@ function utt_create_holidays_page(){
 <div class="wrap" >
     <h2 id="holidayTitle"> <?php _e("Insert Holiday","UniTimetable"); ?> </h2>
     <form action="" name="holidayForm" method="post">
+	<div class = "container">
         <input type="hidden" name="isEdit" id="isEdit" value=0 />
-        <?php _e("Holiday name:","UniTimetable"); ?><br/>
-        <input type="text" name="holidayName" id="holidayName" class="dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
-        <br/>
-        <?php _e("Date:","UniTimetable"); ?><br/>
-        <input type="text" name="holidayDate" id="holidayDate" class="dirty" value=""/>
-        <br/>
-        <div id="secondaryButtonContainer">
+	<div class = "col-sm-6">
+        	<label for = "holidayName"><?php _e("Holiday name:","UniTimetable"); ?><br/></label>
+        	<input type="text" name="holidayName" id="holidayName" class="form-control dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
+        	<br/>
+	</div>
+	<div class = "col-sm-6">
+        	<label for = "holidayDate"><?php _e("Date:","UniTimetable"); ?><br/></label>
+        	<input type="text" name="holidayDate" id="holidayDate" class="form-control dirty" value=""/>
+       		 <br/>
+	</div>
+	</div>
+	
+        <div id="secondaryButtonContainer" class = "container">
         <input type="submit" value="<?php _e("Submit","UniTimetable"); ?>" id="insert-updateHoliday" class="button-primary"/>
         <a href='#' class='button-secondary' id="clearHolidayForm"><?php _e("Reset","UniTimetable"); ?></a>
         </div>
     </form>
+	</br>
     <!-- place to view messages -->
     <div id="messages"></div>
+    <div class = "container">
     <?php 
     _e("Holidays of Year:","UniTimetable"); ?>
     <!-- show filter, select current year on first load -->
@@ -58,8 +67,10 @@ function utt_create_holidays_page(){
             echo "<option value='$nextYear'>$nextYear</option>";
         ?>
     </select>
+    </div>
     <!-- show holidays results -->
-    <div id="holidaysResults">
+    </br>
+    <div id="holidaysResults" class = "container">
         <?php utt_view_holidays(); ?>
     </div>
 </div>

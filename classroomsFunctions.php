@@ -28,27 +28,37 @@ function utt_create_classrooms_page(){
     ?>
     <div class="wrap">
         <h2 id="classroomTitle"> <?php _e("Insert Classroom","UniTimetable"); ?> </h2>
-        <form action="" name="classroomForm" method="post">
+        </br>
+	<form action="" name="classroomForm" method="post">
+	<div class = "container">
+	<div class = "col-sm-6">
             <input type="hidden" name="classroomID" id="classroomID" value=0 />
-            <?php _e("Classroom name:","UniTimetable"); ?><br/>
-            <input type="text" name="classroomName" id="classroomName" class="dirty" value="" placeholder="<?php _e("Required","UniTimetable"); ?>"/>
+            <label for = "classroomName"><?php _e("Classroom name:","UniTimetable"); ?><br/></label>
+            <input type="text" name="classroomName" id="classroomName" class="form-control dirty" value="" placeholder="<?php _e("Required","UniTimetable"); ?>"/>
             <br/>
-            <?php _e("Classroom type:","UniTimetable"); ?><br/>
-            <select name="classroomType" id="classroomType" class="dirty">
+	</div>
+	<div class = "col-sm-6">
+            <label for = "classroomType"><?php _e("Classroom type:","UniTimetable"); ?><br/></label>
+            <select name="classroomType" id="classroomType" class="form-control dirty">
                 <option value="0"><?php _e("- select -","UniTimetable"); ?></option>
                 <option value="Lecture"><?php _e("Lecture","UniTimetable"); ?></option>
                 <option value="Laboratory"><?php _e("Laboratory","UniTimetable"); ?></option>
             </select>
             <br/>
+	</div>
+	</div>
+	<div class = "container">
             <div id="secondaryButtonContainer">
                 <input type="submit" value="<?php _e("Submit","UniTimetable"); ?>" id="insert-updateClassroom" class="button-primary"/>
                 <a href='#' class='button-secondary' id="clearClassroomForm"><?php _e("Reset","UniTimetable"); ?></a>
             </div>
+	</div>
         </form>
         <!-- place to put messages -->
     <div id="messages"></div>
     <!-- place to put table with classroom results -->
-    <div id="classroomsResults">
+    </br>
+    <div id="classroomsResults" class = "container">
         <?php utt_view_classrooms(); ?>
     </div>
     <?php

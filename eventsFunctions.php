@@ -44,8 +44,10 @@ function utt_create_events_page(){
         <h2 id="eventTitle"><?php _e("Insert Event","UniTimetable"); ?></h2>
         <form action="" name="eventForm" method="post">
             <input type="hidden" name="eventID" id="eventID" value=0 />
-            <?php _e("Event type:","UniTimetable"); ?><br/>
-            <select name="eventType" id="eventType" class="dirty">
+	    <div class = "container">
+	    <div class = "col-sm-6">
+            <label for = "eventType"><?php _e("Event type:","UniTimetable"); ?><br/></label>
+            <select name="eventType" id="eventType" class="form-control dirty">
                 <option value="0"><?php _e("- select -","UniTimetable"); ?></option>
                 <option value="Thesis"><?php _e("Thesis","UniTimetable"); ?></option>
                 <option value="Speech"><?php _e("Speech","UniTimetable"); ?></option>
@@ -53,13 +55,18 @@ function utt_create_events_page(){
                 <option value="Students Team"><?php _e("Students Team","UniTimetable"); ?></option>
                 <option value="Graduation"><?php _e("Graduation","UniTimetable"); ?></option>
             </select><br/>
-            <?php _e("Event title:","UniTimetable"); ?><br/>
-            <input type="text" name="title" id="title" class="dirty" size="40" placeholder="<?php _e("Required","UniTimetable"); ?>"/><br/>
-            <?php _e("Event description:","UniTimetable"); ?><br/>
-            <textarea rows="4" cols="38" class="dirty" id="eventDescr" name="eventDescr"></textarea><br/>
-            <div class="element2 firstInRow">
-            <?php _e("Classroom:","UniTimetable"); ?><br/>
-            <select name="classroom" id="classroom" class="dirty">
+	    </div>
+	    <div class = "col-sm-6">
+            <label for = "title"><?php _e("Event title:","UniTimetable"); ?><br/></label>
+            <input type="text" name="title" id="title" class="form-control dirty" size="40" placeholder="<?php _e("Required","UniTimetable"); ?>"/><br/>
+	    </div>
+	    <div class = "col-sm-6">
+            <label for = "eventDescr"><?php _e("Event description:","UniTimetable"); ?><br/></label>
+            <textarea rows="4" cols="38" class="form-control dirty" id="eventDescr" name="eventDescr"></textarea><br/>
+	    </div>
+            <div class="element2 firstInRow col-sm-6">
+            <label for = "classroom"> <?php _e("Classroom:","UniTimetable"); ?><br/></label>
+            <select name="classroom" id="classroom" class="form-control dirty">
                 <?php
                 $classroomsTable=$wpdb->prefix."utt_classrooms";
                 $classrooms = $wpdb->get_results( "SELECT * FROM $classroomsTable ORDER BY name");
@@ -77,25 +84,27 @@ function utt_create_events_page(){
                 ?>
             </select>
             </div>
-            <div class="element2">
-            <?php _e("Date:","UniTimetable"); ?><br/>
-            <input type="text" name="date" id="date" class="dirty" size="14"/>
+            <div class="element2 col-sm-6">
+            <label for = "date"><?php _e("Date:","UniTimetable"); ?><br/></label>
+            <input type="text" name="date" id="date" class="form-control dirty" size="14"/>
             </div>
-            <div class="element2 firstInRow last">
-            <?php _e("Start time:","UniTimetable"); ?><br/>
-            <input name="time" id="time" class="dirty" value="8:00" size="10"/><br/>
+            <div class="element2 firstInRow last col-sm-6">
+            <label for = "time"><?php _e("Start time:","UniTimetable"); ?><br/></label>
+            <input name="time" id="time" class="form-control dirty" value="8:00" size="10"/><br/>
+            <label for = "endTime"><?php _e("End time:","UniTimetable"); ?><br/></label>
+            <input name="endTime" id="endTime" class="form-control dirty" value="10:00" size="10"/>
             </div>
-            <div class="element2">
-            <?php _e("End time:","UniTimetable"); ?><br/>
-            <input name="endTime" id="endTime" class="dirty" value="10:00" size="10"/>
-            </div>
-            <div id="secondaryButtonContainer">
+	    </div>
+	    </br>
+            <div id="secondaryButtonContainer" class = "container">
                 <input type="submit" value="<?php _e("Submit","UniTimetable"); ?>" id="insert-updateEvent" class="button-primary"/>
                 <a href='#' class='button-secondary' id="clearEventForm"><?php _e("Reset","UniTimetable"); ?></a>
             </div>
             </form>
             <!-- place to show messages -->
             <div id="messages"></div>
+	    </br>
+	    <div class = "container">
             <?php _e("Events of Year:","UniTimetable"); ?>
             <!-- filter events by year -->
             <select name="yearFilter" id="yearFilter" onchange="viewEvents();">
@@ -108,6 +117,7 @@ function utt_create_events_page(){
                 echo "<option value='$nextYear'>$nextYear</option>";
                 ?>
             </select>
+	    </div>
             <!-- place to show registered events -->
             <div id="eventsResults">
                 <?php utt_view_events(); ?>

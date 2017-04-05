@@ -300,7 +300,7 @@ function utt_UniTimetable_page(){
     $eventsTable=$wpdb->prefix."utt_events";
     ?>
     <div class="wrap" id = "back">
-        <h2><?php _e("Main Page of TimeTable Plugin","UniTimetable"); ?></h2>
+        <h2><?php _e("Main Page of XXXXXXXXXXXXX Plugin","UniTimetable"); ?></h2>
         <h3><?php _e("About","UniTimetable"); ?></h3>
         <p style="font-size:20px">
             <?php _e("<strong>UniTimetable</strong> is a WordPress plugin for presenting timetables of an educational institute. It includes teachers, classrooms, subjects (modules) and student groups, which are all combined to define lectures. The lectures can be scheduled at some time point during a semester. Out of schedule events and holidays are also supported. After providing the plugin with data, shortcodes provided (see below) generate beautiful calendars with all or selected part of the entered data. <strong>UniTimetable</strong> was designed by <a href='https://www.researchgate.net/profile/Fotis_Kokkoras'>Fotis Kokkoras</a> and <a href='https://www.linkedin.com/pub/antonis-roussos/47/25b/9a5'>Antonis Roussos</a> and implemented by <a href='https://www.linkedin.com/pub/antonis-roussos/47/25b/9a5'>Antonis Roussos</a> for the fulfillment of his BSc Thesis in the <a href'http://www.cs.teilar.gr/CS/Home.jsp'>Department of Computer Science and Engineering (TEI of Thessaly, Greece)</a>.","UniTimetable"); ?>

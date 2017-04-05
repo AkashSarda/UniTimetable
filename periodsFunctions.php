@@ -26,28 +26,37 @@ function utt_period_scripts(){
 function utt_create_periods_page(){
     //period form
     ?>
-    <div class="wrap">
+    <div class="wrap container">
         <h2 id="periodTitle"> <?php _e("Insert Period","UniTimetable"); ?> </h2>
         <form action="" name="periodForm" method="post">
+	<div class = "container">
+	<div class = "col-sm-6">
             <input type="hidden" name="periodid" id="periodid" value=0 />
-            <?php _e("Year:","UniTimetable"); ?><br/>
-            <input type="number" name="year" id="year" class="dirty" value="<?php echo date("Y"); ?>"/>
+            <label for = "year"><?php _e("Year:","UniTimetable"); ?></label><br/>
+            <input type="number" name="year" id="year" class="form-control dirty" value="<?php echo date("Y"); ?>"/>
             <br/>
-            <?php _e("Semester:","UniTimetable"); ?><br/>
-            <select name="semester" class="dirty" id="semester">
+	</div>
+	<div class = "col-sm-6">
+            <label for = "semester"><?php _e("Semester:","UniTimetable"); ?></label><br/>
+            <select name="semester" class="form-control dirty" id="semester">
                 <option value=0><?php _e("- select -","UniTimetable"); ?></option>
                 <option value="W"><?php _e("Winter","UniTimetable"); ?></option>
                 <option value="S"><?php _e("Spring","UniTimetable"); ?></option>
             </select>
             <br/>
+	</div>
+	</div>
+	<div class = "container">
             <div id="secondaryButtonContainer">
                 <input type="submit" value="<?php _e("Submit","UniTimetable"); ?>" id="insert-updatePeriod" class="button-primary"/>
                 <a href='#' class='button-secondary' id="clearPeriodForm"><?php _e("Reset","UniTimetable"); ?></a>
             </div>
+	</div>
         </form>
     <!-- place to show messages -->
     <div id="messages"></div>
     <!-- place to show results table -->
+    </br></br>
     <div id="periodsResults">
         <?php utt_view_periods(); ?>
     </div>
