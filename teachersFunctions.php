@@ -28,9 +28,9 @@ function utt_teacher_scripts(){
 function utt_create_teachers_page(){
     //teachers form
 ?>
-<div class="wrap" >
+<div class="wrap">
     <h2 id="teacherTitle"><?php _e('Insert Teacher','UniTimetable'); ?></h2>
-    <div class = "container form-line">
+    <div class = "container form-line" id = "formcontainer">
     <form action="" name="teacherForm" method="post">
         <input type="hidden" name="teacherid" id="teacherid" value=0 />
 	<div class = "ip col-sm-6 pull-left">
@@ -53,9 +53,10 @@ function utt_create_teachers_page(){
         	<input type="text" name="maxwork" id="maxwork" class="form-control dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
         <br/>
 	</div>
-        <div id="secondaryButtonContainer" class = "container">
+        <div id="secondaryButtonContainer" class = "container" style = "background-color:#D3D3D3">
         <input type="submit" value="<?php _e("Submit","UniTimetable"); ?>" id="insert-updateTeacher" class="btn button-primary"/>
         <a href='#' class='btn button-secondary' id="clearTeacherForm"><?php _e("Reset","UniTimetable"); ?></a>
+	</br></br>
         </div>
     </form>
 	</div>
@@ -63,7 +64,7 @@ function utt_create_teachers_page(){
     <div id="messages"></div>
     <!-- place to view table with registered teachers -->
     </br></br>
-    <div id="teachersResults" class = "container pull-center">
+    <div id="teachersResults" class = "container pull-center" >
         <?php utt_view_teachers(); ?>
     </div>
 

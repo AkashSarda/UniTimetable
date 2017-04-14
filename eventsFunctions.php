@@ -86,11 +86,11 @@ function utt_create_events_page(){
             </div>
             <div class="element2 col-sm-6">
             <label for = "date"><?php _e("Date:","UniTimetable"); ?><br/></label>
-            <input type="text" name="date" id="date" class="form-control dirty" size="14"/>
+            <input type="text" name="date" id="date" class="form-control dirty" size="14"/> </br>
             </div>
             <div class="element2 firstInRow last col-sm-6">
             <label for = "time"><?php _e("Start time:","UniTimetable"); ?><br/></label>
-            <input name="time" id="time" class="form-control dirty" value="8:00" size="10"/><br/>
+            <input name="time" id="time" class="form-control dirty" value="8:00" size="10"/>
             <label for = "endTime"><?php _e("End time:","UniTimetable"); ?><br/></label>
             <input name="endTime" id="endTime" class="form-control dirty" value="10:00" size="10"/>
             </div>
@@ -119,7 +119,7 @@ function utt_create_events_page(){
             </select>
 	    </div>
             <!-- place to show registered events -->
-            <div id="eventsResults">
+            <div id="eventsResults" class = "container">
                 <?php utt_view_events(); ?>
             </div>
     </div>

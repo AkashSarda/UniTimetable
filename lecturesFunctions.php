@@ -35,8 +35,10 @@ function utt_lecture_scripts(){
     if(get_locale()=="el"){
         wp_enqueue_script( 'fullcalendargreek',  plugins_url('js/el.js', __FILE__) );
     }
+    wp_enqueue_style( 'my',  plugins_url('css/my.css', __FILE__) );
     wp_enqueue_style( 'fullcalendarcss',  plugins_url('css/fullcalendar.css', __FILE__) );
     wp_enqueue_style( 'jqueryui_style', plugins_url('css/jquery-ui.css', __FILE__) );
+    wp_enqueue_script( 'BootStrapSelectScripts',  plugins_url('js/bootstrap-select.min.js', __FILE__) );
     wp_enqueue_script('jquery-ui-core');
     wp_enqueue_script('jquery-ui-datepicker');
     wp_enqueue_script('jquery-ui-widget');
@@ -80,6 +82,7 @@ function utt_create_lectures_page(){
             }
             ?>
         </select>
+	</br>
         </div>
         <div class="element col-sm-6">
             <label for = "semester"><?php _e("Curriculum Semester:","UniTimetable"); ?><br/></label>
@@ -92,14 +95,16 @@ function utt_create_lectures_page(){
                 }
                 ?>
             </select>
+	</br>
         </div>
         <div class="element firstInRow col-sm-6">
         <label for = "subject"><?php _e("Subject:","UniTimetable"); ?><br/>
         <div id="subjects">
             <!-- place subjects into select when period and semester selected -->
-        <select name="subject" id="subject" class="form-control dirty">
+        <select name="subject" id="subject" class="selectpicker dirty">
             <option value='0'><?php _e("- select -","UniTimetable"); ?></option>
         </select>
+	</br>
         </div>
         </div>
         <div class="element col-sm-6">
@@ -109,6 +114,7 @@ function utt_create_lectures_page(){
                 <select name="group" id="group" class="form-control dirty">
                     <option value="0"><?php _e("- select -","UniTimetable"); ?></option>
                 </select>
+	</br>
             </div>
         </div>
         <div class="element firstInRow col-sm-6">
@@ -124,7 +130,7 @@ function utt_create_lectures_page(){
                 ?>
             </select>
         </div>
-        <div class="element">
+        <div class="element col-sm-6">
             <label for = "classroom"><?php _e("Classroom:","UniTimetable"); ?><br/></label>
             <select name="classroom" id="classroom" class="form-control dirty">
                 <?php
@@ -143,31 +149,33 @@ function utt_create_lectures_page(){
                 }
                 ?>
             </select>
+            <br/>
         </div>
-        <div id = "workloaddiv">
+        <div id = "workloaddiv ">
         <div class="element firstInRow datetimeElements col-sm-6">
-            <label for = "minwork">Min Workload:<br/></label>
+            <label for = "minwork"><?php _e("Min Workload:", "UniTimeTable"); ?></label>
             <input type="text" name="minworkload" disabled="true" id="minwork" class="form-control dirty" size="20"/>
         </div>
         <div class="element datetimeElements col-sm-6">
             <label for = "maxwork">Max Workload:<br/></label>
-            <input type="text" name="maxworkload" disabled="true" id="maxwork" class="dirty" size="20"/>
+            <input type="text" name="maxworkload" disabled="true" id="maxwork" class="form-control dirty" size="20"/>
+            <br/>
         </div>
         <div class="element datetimeElements col-sm-6">
             <label for = "assignedwork">Assigned Workload:<br/>
             <input type="text" name="assignedworkload" disabled="true" id="assignedwork" class="form-control dirty" size="20"/>
+            <br/>
         </div>
         </div>
         <div class="element firstInRow datetimeElements col-sm-6">
             <?php _e("Date:","UniTimetable"); ?>
+            <input type="text" name="date" id="date" class="form-control dirty" size="14"/>
             <br/>
-            <input type="text" name="date" id="date" class="dirty" size="14"/>
         </div>
+        
         <div class="element datetimeElements col-sm-6">
             <label for = "time"><?php _e("Start time:","UniTimetable"); ?><br/></label>
             <input name="time" id="time" class="form-control dirty" value="8:00" size="10"/>
-        </div>
-        <div class="element datetimeElements col-sm-6">
             <label for = "endTime"><?php _e("End time:","UniTimetable"); ?><br/></label>
             <input name="endTime" id="endTime" class="form-control dirty" value="10:00" size="10"/>
         </div>
@@ -190,7 +198,6 @@ function utt_create_lectures_page(){
     </form>
     <div id="messages"></div>
     </br>
-
     <div id="filters" class = "container">
         <span id="filter1">
             <?php _e("View per:","UniTimetable"); ?>&nbsp;
@@ -215,9 +222,16 @@ function utt_create_lectures_page(){
         </span>
         <img id="loadingImg" src="<?php echo plugins_url('icons/spinner.gif', __FILE__); ?>"/>
     </div>
+    </br>
     <div id="calendar" class = "container"></div>
     </div>
      
+	<select class = "selectpicker" data-live-search="true">
+		<option>Mustard</option>
+		<option>Ketchup</option>
+		<option>Relish</option>
+	</select>
+
     <?php
 }
 //load groups combo-box when period and subject selected
