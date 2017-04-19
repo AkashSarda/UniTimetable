@@ -1,3 +1,12 @@
+h3{
+	font-family : Arial;
+	color : red;
+}
+
+#back{
+	background-color:yellow;
+}
+
 #messages{
     height: 35px;
 }
@@ -41,7 +50,7 @@
     margin-top: 1em;
 }
 #calendar{
-    float: left;
+    float: center;
 }
 .my-legend .legend-title {
     text-align: left;
