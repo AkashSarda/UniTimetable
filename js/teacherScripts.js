@@ -146,4 +146,3 @@ jQuery(function ($) {
       isDirty = 1;
     })
     
-});

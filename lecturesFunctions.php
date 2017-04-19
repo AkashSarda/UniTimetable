@@ -226,11 +226,6 @@ function utt_create_lectures_page(){
     <div id="calendar" class = "container"></div>
     </div>
      
-	<select class = "selectpicker" data-live-search="true">
-		<option>Mustard</option>
-		<option>Ketchup</option>
-		<option>Relish</option>
-	</select>
 
     <?php
 }

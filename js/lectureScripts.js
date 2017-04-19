@@ -871,4 +871,3 @@ jQuery(function ($) {
    $('.dirty').change(function(){
       isDirty = 1;
    })
-});
