@@ -258,9 +258,6 @@ function utt_UniTimetableMenu_create(){
     add_menu_page('UniTimeTable','UniTimeTable','manage_options',__FILE__,'utt_UniTimetable_page' );
     
     //add submenu pages to UniTimetable menu
-    $DashboardPage = add_submenu_page( __FILE__,__("Timetable Dashboard","UniTimetable"), __("Dashboard","UniTimetable"), 'manage_options',__FILE__.'_dashboard', 'utt_create_periods_page' );
-    add_action('load-'.$DashboardPage, 'utt_dashboard_scripts');    
-    
     $teachersPage = add_submenu_page( __FILE__, __("Insert Teacher","UniTimetable"), __("Teachers","UniTimetable"), 'manage_options',__FILE__.'_teachers', 'utt_create_teachers_page' );
     add_action('load-'.$teachersPage, 'utt_teacher_scripts');
     
@@ -299,10 +296,10 @@ function utt_UniTimetable_page(){
     $holidaysTable=$wpdb->prefix."utt_holidays";
     $eventsTable=$wpdb->prefix."utt_events";
     ?>
-    <div class="wrap" id = "back">
-        <h2><?php _e("Main Page of TimeTable Plugin","UniTimetable"); ?></h2>
+    <div class="wrap">
+        <h2><?php _e("Main Page of UniTimetable Plugin","UniTimetable"); ?></h2>
         <h3><?php _e("About","UniTimetable"); ?></h3>
-        <p style="font-size:20px">
+        <p>
             <?php _e("<strong>UniTimetable</strong> is a WordPress plugin for presenting timetables of an educational institute. It includes teachers, classrooms, subjects (modules) and student groups, which are all combined to define lectures. The lectures can be scheduled at some time point during a semester. Out of schedule events and holidays are also supported. After providing the plugin with data, shortcodes provided (see below) generate beautiful calendars with all or selected part of the entered data. <strong>UniTimetable</strong> was designed by <a href='https://www.researchgate.net/profile/Fotis_Kokkoras'>Fotis Kokkoras</a> and <a href='https://www.linkedin.com/pub/antonis-roussos/47/25b/9a5'>Antonis Roussos</a> and implemented by <a href='https://www.linkedin.com/pub/antonis-roussos/47/25b/9a5'>Antonis Roussos</a> for the fulfillment of his BSc Thesis in the <a href'http://www.cs.teilar.gr/CS/Home.jsp'>Department of Computer Science and Engineering (TEI of Thessaly, Greece)</a>.","UniTimetable"); ?>
         </p>
         <h3><?php _e("How to use the Shortcodes","UniTimetable"); ?></h3>
@@ -372,7 +369,6 @@ function utt_UniTimetable_page(){
        </tr>
     </tbody>
   </table>
-</div>
     </div>
     <?php
 }

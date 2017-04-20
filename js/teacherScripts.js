@@ -146,4 +146,5 @@ jQuery(function ($) {
       isDirty = 1;
     })
     
+>>>>>>> added the functionality that handles Min Max workload of the teacher by just modifying the teachers table
 });

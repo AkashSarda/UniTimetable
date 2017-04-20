@@ -28,46 +28,41 @@ function utt_teacher_scripts(){
 function utt_create_teachers_page(){
     //teachers form
 ?>
-<div class="wrap">
+<div class="wrap container" >
     <h2 id="teacherTitle"><?php _e('Insert Teacher','UniTimetable'); ?></h2>
-    <div class = "container form-line" id = "formcontainer">
     <form action="" name="teacherForm" method="post">
         <input type="hidden" name="teacherid" id="teacherid" value=0 />
-	<div class = "ip col-sm-6 pull-left">
-		<label for="lastname"><?php _e("Surname:", "UniTimeTable"); ?></label>
-        	<br/>
-        	 <input type="text" name="lastname" id="lastname" class="form-control dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
-        	<br/>
-	</div>
-	<div class = "ip col-sm-6 pull-left">
-		<label for="firstname"><?php _e("Name:", "UniTimeTable"); ?></label><br/>
-        	<input type="text" name="firstname" id="firstname" class="form-control dirty"/><br/>
-	</div>
-	<div class = "ip col-sm-6 pull-left">
-		<label for="minwork"><?php _e("Minimum Workload:", "UniTimeTable"); ?></label><br/>
-        	<input type="text" name="minwork" id="minwork" class="form-control dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
+	<div class = "col-sm-6">
+        <?php _e("Surname:","UniTimetable"); ?><br/>
+        <input type="text" name="lastname" id="lastname" class="form-control dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
         <br/>
 	</div>
-	<div class = "ip col-sm-6 pull-left">
-		<label for="maxwork"><?php _e("Maximum Workload:", "UniTimeTable"); ?></label><br/>
-        	<input type="text" name="maxwork" id="maxwork" class="form-control dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
+	<div class = "col-sm-6">
+        <?php _e("Name:","UniTimetable"); ?><br/>
+        <input type="text" name="firstname" id="firstname" class="form-control dirty"/>
         <br/>
 	</div>
-        <div id="secondaryButtonContainer" class = "container" style = "background-color:#D3D3D3">
-        <input type="submit" value="<?php _e("Submit","UniTimetable"); ?>" id="insert-updateTeacher" class="btn button-primary"/>
-        <a href='#' class='btn button-secondary' id="clearTeacherForm"><?php _e("Reset","UniTimetable"); ?></a>
-	</br></br>
+	<div class = "col-sm-6">
+        <?php _e("Minimum workload:","UniTimetable"); ?><br/>
+        <input type="text" name="minwork" id="minwork" class="form-control dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
+        <br/>
+	</div>
+	<div class = "col-sm-6">
+        <?php _e("Maximum workload:","UniTimetable"); ?><br/>
+        <input type="text" name="maxwork" id="maxwork" class="form-control dirty" required placeholder="<?php _e("Required","UniTimetable"); ?>"/>
+        <br/>
+	</div>
+        <div id="secondaryButtonContainer">
+        <input type="submit" value="<?php _e("Submit","UniTimetable"); ?>" id="insert-updateTeacher" class="button-primary"/>
+        <a href='#' class='button-secondary' id="clearTeacherForm"><?php _e("Reset","UniTimetable"); ?></a>
         </div>
     </form>
-	</div>
     <!-- place to view messages -->
     <div id="messages"></div>
     <!-- place to view table with registered teachers -->
-    </br></br>
-    <div id="teachersResults" class = "container pull-center" >
+    <div id="teachersResults">
         <?php utt_view_teachers(); ?>
     </div>
-
 </div>
 
 <?php
@@ -81,9 +76,8 @@ function utt_view_teachers(){
     //show registered teachers
     $teachers = $wpdb->get_results("SELECT * FROM $teachersTable ORDER BY surname");
     ?>
-    <div class="container col-sm-10">
         <!-- table with registered teachers -->
-        <table class="widefat bold-th container">
+        <table class="widefat bold-th">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -107,7 +101,6 @@ function utt_view_teachers(){
                 </tr>
             </tfoot>
             <tbody>
-        </div>
         <?php
         //show grey and white records in order to be more recognizable
         $bgcolor = 1;
