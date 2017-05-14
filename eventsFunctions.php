@@ -40,7 +40,7 @@ function utt_event_scripts(){
 function utt_create_events_page(){
     global $wpdb;
     ?>
-    <div class="wrap">
+    <div class="wrap container" style="background-color : #d3d3d3">
         <h2 id="eventTitle"><?php _e("Insert Event","UniTimetable"); ?></h2>
         <form action="" name="eventForm" method="post">
             <input type="hidden" name="eventID" id="eventID" value=0 />
@@ -119,8 +119,11 @@ function utt_create_events_page(){
             </select>
 	    </div>
             <!-- place to show registered events -->
+
+		</br></br>	
             <div id="eventsResults" class = "container">
                 <?php utt_view_events(); ?>
+                </br>
             </div>
     </div>
 <?php
