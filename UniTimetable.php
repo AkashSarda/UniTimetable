@@ -258,6 +258,9 @@ function utt_UniTimetableMenu_create(){
     add_menu_page('UniTimeTable','UniTimeTable','manage_options',__FILE__,'utt_UniTimetable_page' );
     
     //add submenu pages to UniTimetable menu
+    $dashboardPage = add_submenu_page( __FILE__, __("Dashboard","UniTimetable"), __("Dashboard","UniTimetable"), 'manage_options',__FILE__.'_teachers', 'utt_create_teachers_page' );
+    add_action('load-'.$teachersPage, 'utt_teacher_scripts');
+    
     $teachersPage = add_submenu_page( __FILE__, __("Insert Teacher","UniTimetable"), __("Teachers","UniTimetable"), 'manage_options',__FILE__.'_teachers', 'utt_create_teachers_page' );
     add_action('load-'.$teachersPage, 'utt_teacher_scripts');
     
